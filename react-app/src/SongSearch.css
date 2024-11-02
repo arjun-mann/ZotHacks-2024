@@ -1,0 +1,63 @@
+/* Styling for the Song Search Page */
+.SongSearchPage {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    font-family: "Arial", sans-serif;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1db954; /* Spotify Green */
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #17a74a; /* Darker green on hover */
+  }
+  
+  .results-section,
+  .similar-songs-section,
+  .matching-playlists-section {
+    margin-top: 20px;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  

@@ -6,8 +6,11 @@ body, html {
   font-family: "Roboto", sans-serif; /* Modern font for the whole app */
   background-color: #f9fafb; /* Soft background color for a clean look */
   color: #333; /* Dark gray text for readability */
-  height: 100%;
-  width: 100%;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* App Container */
@@ -16,24 +19,26 @@ body, html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Make the app take full viewport height */
+  min-height: 100vh; /* Full viewport height */
   padding: 20px;
   text-align: center;
 }
+
 
 /* Logo Styling */
 img {
   max-width: 100%;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 /* Title Styling */
 .title {
   font-size: 3rem;
   font-weight: 700;
-  color: #1db954; /* Spotify green color */
+  color: #1d7969; /* Spotify green color */
   font-family: "Montserrat", sans-serif; /* Bold, modern font for title */
+  align-items: center;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
   margin-bottom: 30px;
 }
@@ -43,11 +48,9 @@ img {
   background-color: #ffffff; /* White background for the card */
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  padding: 30px;
+  padding: 2em;
   width: 100%;
   max-width: 500px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 20px; /* Space between elements */
 }
@@ -109,10 +112,10 @@ p {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .title {
-    font-size: 2.5rem; /* Smaller title on smaller screens */
+      font-size: 2.5rem; /* Smaller title on smaller screens */
   }
 
   .card {
-    padding: 20px;
+      padding: 20px;
   }
 }
