@@ -23,17 +23,10 @@ def get_reccommendations():
     }
     
     response = requests.get(url, headers=headers, params=querystring)
-
  
     data = response.json()
-    track_names = [track['name'] for track in data['tracks']]
-
-    recommendation_list = []
-
-    for track in track_names:
-        recommendation_list.append(search_song_recs(track))
     
-    return jsonify(recommendation_list)
+    return jsonify(data)
 
 
 
@@ -113,12 +106,21 @@ def search_song_recs(input_string: str):
 
 @app.route("/seed", methods = ['POST'])
 def add_to_seed_list():
-    data = requests.get_json()
-    input_string = data['data']
+    global seed_list
+    data = request.get_json()
+    id = data["id"]
+    # input_string = data['data']
 
-    seed_list += f"{input_string},"
+    seed_list += f"{id},"
+
+    # check if the seed list is > 5
+    # if it is, do something!
+    if len(seed_list[:-1].split(",")) > 5:
+        last_five = seed_list[:-1].split(",")[-5:]
+        seed_list = ",".join(last_five) + ","
 
     print(seed_list)
+    return "success"
 
 
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate hook
 import "./SongSearch.css"; // Import the CSS file for styling
 
 // Define the Song type
@@ -12,7 +13,10 @@ interface Song {
 function SongSearchPage() {
   const [searchTerm, setSearchTerm] = useState<string>(""); // State for the search input
   const [songs, setSongs] = useState<Song[]>([]); // State to store the recommended songs
+  const [selectedSongs, setSelectedSongs] = useState<Song[]>([]); // State to stre the selected songs
   const [loading, setLoading] = useState<boolean>(false); // State to indicate loading
+
+  const generateSongRecs = () => {};
 
   // Function to handle search form submission
   const handleSearchSubmit = async (event: React.FormEvent) => {
@@ -50,6 +54,10 @@ function SongSearchPage() {
     } finally {
       setLoading(false); // Set loading to false when the search is complete
     }
+  };
+
+  const clearSelectedSongs = () => {
+    setSelectedSongs([]);
   };
 
   // Placeholder templates for songs
@@ -113,11 +121,39 @@ function SongSearchPage() {
             />
             <div className="song-info">
               <h3 className="song-name">{song.name}</h3>
-              <p className="song-artist">{song.artist}</p>
+              <p>{song.artist}</p>
+
+              <button
+                className="add-button"
+                onClick={async () => {
+                  await fetch("http://localhost:5001/seed", {
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    method: "POST",
+                    body: JSON.stringify({
+                      id: song.id,
+                    }),
+                  });
+                }}
+              >
+                Add
+              </button>
             </div>
           </div>
         ))}
       </div>
+
+      {/* <button onClick={generateSongRecs}>Generate Song Recommendations</button> */}
+
+      <Link to="/song-res">
+        <button onClick={generateSongRecs}>
+          Generate Song Recommendations
+        </button>
+      </Link>
+
+      {/* clear selected songs */}
+      <button onClick={clearSelectedSongs}>Clear Selected Songs</button>
     </div>
   );
 }

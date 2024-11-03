@@ -88,15 +88,16 @@ button:hover {
 }
 
 /* Response Message Styling */
-p {
+/* p {
   font-size: 1.1rem;
   color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 10px 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Shadow for the message */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); 
   margin-top: 20px;
 }
+ */
 
 /* Recommended Songs Section */
 .recommended-songs {
@@ -108,6 +109,25 @@ p {
   width: 100%; /* Ensure the section fills the width */
   padding: 0 20px; /* Optional padding */
   overflow: auto; /* Allow scrolling if necessary */
+}
+
+.clear-button {
+  display: block; /* Make it a block element */
+  margin: 20px auto; /* Center the button with auto margins */
+  padding: 12px 24px; /* Adjusts the padding for size */
+  border: none; /* Removes default border */
+  border-radius: 30px; /* Rounds the corners */
+  background-color: #ff4c4c; /* Red background color */
+  color: #ffffff; /* White text color */
+  font-size: 1.1rem; /* Adjusts font size */
+  font-weight: 700; /* Bold text */
+  cursor: pointer; /* Changes cursor to pointer */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
+}
+
+.clear-button:hover {
+  background-color: #ff2c2c; /* Darker red on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
 }
 
 .song-card {
@@ -137,10 +157,17 @@ p {
 
 .song-name {
   font-weight: 700;
-  margin-bottom: 5px;
+  margin-bottom: -10px;
 }
 
 .song-artist {
   font-weight: 400;
-  color: #555;
+  background-color: #555;
+  
+}
+
+.add-button{
+  font-weight: 400;
+  background-color: #32c65a;
+  margin: 10px;
 }

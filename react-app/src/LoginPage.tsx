@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate hook
 import "./LoginPage.css";
 import SongSearchPage from "./SongSearch"; // Import SongSearchPage component
 
