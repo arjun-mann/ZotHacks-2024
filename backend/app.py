@@ -15,6 +15,7 @@ def get_reccommendations():
 
     global seed_list
 
+    print(seed_list[:-1], 'heres out list')
     querystring = {"limit":"5","seed_tracks":seed_list[:-1]}
 
     headers = {

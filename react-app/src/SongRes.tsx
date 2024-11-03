@@ -18,6 +18,69 @@ function SongRes() {
     return savedPlaylists ? JSON.parse(savedPlaylists) : [];
   });
 
+  const [songs, setSongs] = useState([]);
+  useEffect(() => {
+    console.log("HELLO W WEO HERE");
+    fetch("http://localhost:5001/recommendations")
+      .then((res) => res.json())
+      .then((res) => {
+        console.log("HERE IS OUR RES", res);
+        // setSongs(res.tracks.items.map(({ data }) => ({
+        //     id: data.id,
+        //     artist: data.artists.items
+        //       .map(({ profile }) => profile.name)
+        //       .join(", "),
+        //     name: data.name,
+        //     imageUrl: data.albumOfTrack.coverArt.sources?.[0].url,
+        //   })))
+
+        setSongs(
+          res.tracks.map(({ artists, name, album }) => ({
+            artist: artists.map(({ name }) => name).join(", "),
+            name: name,
+            imageUrl: album.images[1].url,
+          }))
+        );
+      });
+  }, []);
+
+  //   const handleRecsSubmit = async (event: React.FormEvent) => {
+  //     event.preventDefault();
+  //     setLoading(true); // Set loading to true when the search is initiated
+
+  //     try {
+  //       // Send the search term to the backend as a plain string
+  //       const response = await fetch(
+  //         "http://localhost:5001/recommendations" + searchTerm
+  //       );
+
+  //       // if (!response.ok) {
+  //       //   throw new Error("Failed to fetch songs from the backend");
+  //       // }
+
+  //       // Simulate receiving data from the backend
+  //       const data = await response.json();
+  //       console.log(data);
+  //       setSongs(
+  //         data.tracks.items.map(({ data }) => ({
+  //           id: data.id,
+  //           artist: data.artists.items
+  //             .map(({ profile }) => profile.name)
+  //             .join(", "),
+  //           name: data.name,
+  //           imageUrl: data.albumOfTrack.coverArt.sources?.[0].url,
+  //         }))
+  //       );
+  //       // Set the songs received from the backend
+  //       // setSongs(data.slice(0, 5)); // Limit to 5 songs
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //       alert("An error occurred while fetching songs.");
+  //     } finally {
+  //       setLoading(false); // Set loading to false when the search is complete
+  //     }
+  //   };
+
   // Placeholder templates for song search
   const placeholderSongs: Song[] = [
     {
@@ -77,7 +140,7 @@ function SongRes() {
       <div className="song-templates">
         <h2>Song Search Templates</h2>
         <div className="songs-grid">
-          {placeholderSongs.map((song) => (
+          {songs.map((song) => (
             <div key={song.id} className="song-card">
               <div className="song-image-wrapper">
                 <img
