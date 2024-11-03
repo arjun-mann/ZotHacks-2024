@@ -2,16 +2,17 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./LoginPage"; // Import the Login component
-import PlaylistPage from "./PlaylistPage"; // Import the PlaylistPage component
+import SongSearchPage from "./SongSearch"; // Import the SongSearchPage component
 
 const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        {/* Define the routes for the app */}
+        {/* Define routes for the app */}
         <Routes>
-          <Route path="/" element={<Login />} /> {/* Default route */}
-          <Route path="/playlists" element={<PlaylistPage />} />
+          <Route path="/" element={<Login />} /> {/* Default route for Login */}
+          <Route path="/song-search" element={<SongSearchPage />} />{" "}
+          {/* Route for SongSearchPage */}
         </Routes>
       </div>
     </Router>

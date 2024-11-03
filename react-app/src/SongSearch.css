@@ -1,63 +1,146 @@
-/* Styling for the Song Search Page */
+/* Ensure HTML and Body take full height */
+html, body {
+  height: 100%; /* Set height to 100% to fill the viewport */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Overall Styling for the Song Search Page */
 .SongSearchPage {
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    min-height: 100vh;
-    font-family: "Arial", sans-serif;
-  }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-  
-  .search-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-bar {
-    width: 300px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #1db954; /* Spotify Green */
-    color: white;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #17a74a; /* Darker green on hover */
-  }
-  
-  .results-section,
-  .similar-songs-section,
-  .matching-playlists-section {
-    margin-top: 20px;
-  }
-  
-  h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensures the page fills the viewport height */
+  background: linear-gradient(135deg, #4cbaea, #26aef3); /* Gradient background */
+  font-family: "Poppins", sans-serif; /* Modern font */
+  color: #ffffff;
+  padding: 40px; /* Optional padding */
+  box-sizing: border-box; /* Include padding in the width */
+  text-align: center; /* Center the text */
+  max-width: 10000000px;
+  width: 400%;
+}
+
+/* Header Styling */
+.SongSearchPage h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+  border-bottom: 2px solid #ffffff; /* Underline for the header */
+  padding-bottom: 10px;
+}
+
+/* Search Form Styling */
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.search-bar {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 600px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  color: #ffffff;
+  outline: none;
+}
+
+.search-bar::placeholder {
+  color: #000000; /* Light placeholder color */
+}
+
+.search-bar:focus {
+  border-color: #000000; /* Focus border color */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Focus shadow */
+}
+
+/* Button Styling */
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  background-color: #0ec429;
+  color: #000000; /* Button text color */
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, color 0.3s;
+  margin-left: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Button shadow */
+}
+
+button:hover {
+  background-color: rgb(21, 206, 55);
+  color: #ffffff; /* Text color on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Response Message Styling */
+p {
+  font-size: 1.1rem;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Shadow for the message */
+  margin-top: 20px;
+}
+
+/* Recommended Songs Section */
+.recommended-songs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%; /* Ensure the section fills the width */
+  padding: 0 20px; /* Optional padding */
+  overflow: auto; /* Allow scrolling if necessary */
+}
+
+.song-card {
+  background-color: #ffffff;
+  color: #121212;
+  border-radius: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  transition: transform 0.3s;
+}
+
+.song-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.song-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.song-info {
+  font-size: 1rem;
+}
+
+.song-name {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.song-artist {
+  font-weight: 400;
+  color: #555;
+}
